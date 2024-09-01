@@ -1,9 +1,4 @@
 
-IF NOT EXIST build (
-    mkdir build
-)
-cd build
-cmake -G "MinGW Makefiles" ..
-make
-
-Demo
+cd install/test
+shared_test
+static_test

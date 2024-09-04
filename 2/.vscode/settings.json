@@ -1,4 +1,8 @@
 {
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.default.cppStandard": "c++20",
+    "C_Cpp.clang_format_style": "file",
+    "cmake.outputLogEncoding": "utf-8",
     "files.associations": {
         "Hello": "cpp",
     }

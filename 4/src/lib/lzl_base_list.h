@@ -88,6 +88,7 @@ protected:
         using iterator_category = ::std::forward_iterator_tag;
         using difference_type = ::std::ptrdiff_t;
         using node_type = NODE_T;
+        using value_type = T;
         using pointer = value_type*;
         using reference = value_type&;
 
@@ -130,9 +131,9 @@ protected:
         using iterator_category = ::std::forward_iterator_tag;
         using difference_type = ::std::ptrdiff_t;
         using node_type = NODE_T;
-        using value_type = T;
-        using pointer = const value_type*;
-        using reference = const value_type&;
+        using value_type = const T;
+        using pointer = value_type*;
+        using reference = value_type&;
 
         const_iterator() = default;
 
@@ -243,8 +244,8 @@ protected:
     virtual void size_down() override { m_size--; }
 
     // iterator
-    using iterator = typename base_type::iterator<node_type>;
-    using const_iterator = typename base_type::const_iterator<node_type>;
+    using iterator = typename base_type::template iterator<node_type>;
+    using const_iterator = typename base_type::template const_iterator<node_type>;
 
     iterator begin() { return iterator(m_head); }
 

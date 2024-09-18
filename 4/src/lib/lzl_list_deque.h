@@ -150,18 +150,21 @@ protected:
 
 protected:
     // iterator
-    class iterator : public base_type::iterator<node_type>
+    class iterator : public base_type::template iterator<node_type>
     {
-        using base_type = typename list_deque::base_type::iterator<node_type>;
+        using base_type = typename list_deque::base_type::template iterator<node_type>;
 
     public:
-        using base_type::difference_type;
-        using base_type::iterator_category;
-        using base_type::node_type;
-        using base_type::pointer;
-        using base_type::reference;
+        using difference_type = typename base_type::difference_type;
+        using iterator_category = typename base_type::iterator_category;
+        using node_type = typename base_type::node_type;
+        using pointer = typename base_type::pointer;
+        using reference = typename base_type::reference;
+        using value_type = typename base_type::value_type;
 
-        using base_type::iterator;
+        iterator() : base_type() {}
+
+        iterator(node_type* node) : base_type(node) {}
 
         iterator& operator--()
         {
@@ -171,7 +174,7 @@ protected:
 
         iterator operator--(int)
         {
-            iterator tmp = *this;
+            auto tmp = *this;
             m_node = m_node->prev;
             return tmp;
         }
@@ -180,19 +183,21 @@ protected:
         using base_type::m_node;
     };
 
-    class const_iterator : public base_type::const_iterator<node_type>
+    class const_iterator : public base_type::template const_iterator<node_type>
     {
-        using base_type = typename list_deque::base_type::const_iterator<node_type>;
+        using base_type = typename list_deque::base_type::template const_iterator<node_type>;
 
     public:
-        using base_type::difference_type;
-        using base_type::iterator_category;
-        using base_type::node_type;
-        using base_type::pointer;
-        using base_type::reference;
-        using base_type::value_type;
+        using difference_type = typename base_type::difference_type;
+        using iterator_category = typename base_type::iterator_category;
+        using node_type = typename base_type::node_type;
+        using pointer = typename base_type::pointer;
+        using reference = typename base_type::reference;
+        using value_type = typename base_type::value_type;
 
-        using base_type::const_iterator;
+        const_iterator() : base_type() {}
+
+        const_iterator(node_type* node) : base_type(node) {}
 
         const_iterator& operator--()
         {
@@ -202,7 +207,7 @@ protected:
 
         const_iterator operator--(int)
         {
-            const_iterator tmp = *this;
+            auto tmp = *this;
             m_node = m_node->prev;
             return tmp;
         }

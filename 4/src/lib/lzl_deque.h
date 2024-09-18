@@ -163,6 +163,7 @@ protected:
     public:
         using iterator_category = ::std::forward_iterator_tag;
         using difference_type = ::std::ptrdiff_t;
+        using value_type = T;
         using pointer = value_type*;
         using reference = value_type&;
         using array_it = array_type::iterator;
@@ -218,8 +219,9 @@ protected:
     public:
         using iterator_category = ::std::forward_iterator_tag;
         using difference_type = ::std::ptrdiff_t;
-        using pointer = const value_type*;
-        using reference = const value_type&;
+        using value_type = const T;
+        using pointer = value_type*;
+        using reference = value_type&;
         using array_it = array_type::const_iterator;
         using list_it = list_type::const_iterator;
 

@@ -238,6 +238,7 @@ public:
         using iterator_category = ::std::forward_iterator_tag;
         using difference_type = ::std::ptrdiff_t;
         using super_pointer = const array_deque*;
+        using value_type = T;
         using pointer = value_type*;
         using reference = value_type&;
 
@@ -311,8 +312,9 @@ public:
         using iterator_category = ::std::forward_iterator_tag;
         using difference_type = ::std::ptrdiff_t;
         using super_pointer = const array_deque*;
-        using pointer = const value_type*;
-        using reference = const value_type&;
+        using value_type = const T;
+        using pointer = value_type*;
+        using reference = value_type&;
 
         const_iterator() = default;
 
